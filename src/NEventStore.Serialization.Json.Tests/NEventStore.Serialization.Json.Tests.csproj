@@ -37,9 +37,41 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="xunit, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.should.1.1\lib\net35\xunit.should.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests\SerializationTests.cs">
+      <Link>SerializationTests.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializerFixture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests\NEventStore.Persistence.AcceptanceTests.csproj">
+      <Project>{3fe594fe-16ff-4405-97d5-5a58fb12520b}</Project>
+      <Name>NEventStore.Persistence.AcceptanceTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\dependencies\NEventStore\src\NEventStore\NEventStore.csproj">
+      <Project>{03946843-f343-419c-88ef-3e446d08dfa6}</Project>
+      <Name>NEventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEventStore.Serialization.Json\NEventStore.Serialization.Json.csproj">
+      <Project>{a911b188-0d79-4d28-bc07-39116cf2d0eb}</Project>
+      <Name>NEventStore.Serialization.Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
